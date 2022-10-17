@@ -46,7 +46,7 @@ public class ScoreService {
             return sc;
         }
     }
-    public boolean delete(int id){
+    public boolean deleteScore(int id){
         boolean flag=false;
         Optional<Score>sc= scoreRepository.getScore(id);
         if (sc.isPresent()){
