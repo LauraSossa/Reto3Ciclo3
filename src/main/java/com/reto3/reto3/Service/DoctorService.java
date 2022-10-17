@@ -58,7 +58,7 @@ public class DoctorService {
             return d;
         }
     }
-    public boolean delete(int id){
+    public boolean deleteDoctor(int id){
         boolean flag=false;
         Optional<Doctor>d=doctorRepository.getDoctor(id);
         if (d.isPresent()){

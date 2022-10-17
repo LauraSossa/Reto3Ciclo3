@@ -46,7 +46,7 @@ public class MessageService {
             return m;
         }
     }
-    public boolean delete(int id){
+    public boolean deleteMessage(int id){
         boolean flag=false;
         Optional<Message>m= messageRepository.getMessage(id);
         if (m.isPresent()){

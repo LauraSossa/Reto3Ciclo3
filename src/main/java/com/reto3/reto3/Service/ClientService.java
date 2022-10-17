@@ -58,7 +58,7 @@ public class ClientService {
             return c;
         }
     }
-    public boolean delete(int id){
+    public boolean deleteClient(int id){
         boolean flag=false;
         Optional<Client>c= clientRepository.getClient(id);
         if (c.isPresent()){

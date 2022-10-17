@@ -1,5 +1,6 @@
 package com.reto3.reto3.Service;
 
+
 import com.reto3.reto3.Modelo.Specialty;
 import com.reto3.reto3.Repository.SpecialtyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +16,7 @@ public class SpecialtyService {
     public List<Specialty> getAll(){
         return specialtyRepository.getAll();
     }
-    public Optional<Specialty> getDoctor(int id){
+    public Optional<Specialty> getSpecialty(int id){
         return specialtyRepository.getSpecialty(id);
     }
     public Specialty save(Specialty s){
@@ -48,6 +49,15 @@ public class SpecialtyService {
         }else {
             return s;
         }
+    }
+    public boolean deleteSpecialty(int id){
+        boolean flag=false;
+        Optional<Specialty>s= specialtyRepository.getSpecialty(id);
+        if (s.isPresent()){
+            specialtyRepository.delete(s.get());
+            flag=true;
+        }
+        return  flag;
     }
 
 }

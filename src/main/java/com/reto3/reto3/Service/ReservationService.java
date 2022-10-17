@@ -52,7 +52,7 @@ public class ReservationService {
             return r;
         }
     }
-    public boolean delete(int id){
+    public boolean deleteReservation(int id){
         boolean flag=false;
         Optional<Reservation>r= reservationRepository.getReservation(id);
         if (r.isPresent()){
