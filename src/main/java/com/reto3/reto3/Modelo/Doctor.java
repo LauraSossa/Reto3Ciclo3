@@ -12,7 +12,7 @@ public class Doctor implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String department;
-    @Column(name = "year")
+    @Column(name = "year1")
     private Integer year;
     private Integer department_id;
     private String name;
