@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/score")
+@RequestMapping("/api/Score")
 public class ScoreController {
     @Autowired
     private ScoreService scoreService;

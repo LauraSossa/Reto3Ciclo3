@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/reservation")
+@RequestMapping("/api/Reservation")
 public class ReservationController {
     @Autowired
     private ReservationService reservationService;
