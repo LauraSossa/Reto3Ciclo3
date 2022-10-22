@@ -11,15 +11,16 @@ public class Doctor implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    private String name;
     private String department;
     @Column(name = "year1")
     private Integer year;
-    private Integer department_id;
-    private String name;
+    private String description;
+
 
     @ManyToOne
-    @JoinColumn(name = "specialty")
-    @JsonIgnoreProperties("doctor")
+    @JoinColumn(name = "specialtyId")
+    @JsonIgnoreProperties("doctors")
     private  Specialty specialty;
 
     @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "doctor")
@@ -39,6 +40,14 @@ public class Doctor implements Serializable {
         this.id = id;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public String getDepartment() {
         return department;
     }
@@ -55,20 +64,12 @@ public class Doctor implements Serializable {
         this.year = year;
     }
 
-    public Integer getDepartment_id() {
-        return department_id;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDepartment_id(Integer department_id) {
-        this.department_id = department_id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public Specialty getSpecialty() {
@@ -77,6 +78,22 @@ public class Doctor implements Serializable {
 
     public void setSpecialty(Specialty specialty) {
         this.specialty = specialty;
+    }
+
+    public List<Message> getMessages() {
+        return messages;
+    }
+
+    public void setMessages(List<Message> messages) {
+        this.messages = messages;
+    }
+
+    public List<Reservation> getReservations() {
+        return reservations;
+    }
+
+    public void setReservations(List<Reservation> reservations) {
+        this.reservations = reservations;
     }
 }
 

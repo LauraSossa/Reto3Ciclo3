@@ -15,15 +15,15 @@ public class ReservationService {
     public List<Reservation> getAll(){
         return reservationRepository.getAll();
     }
-    public Optional<Reservation> getReservation(int id){
-        return reservationRepository.getReservation(id);
+    public Optional<Reservation> getReservation(int idReservation){
+        return reservationRepository.getReservation(idReservation);
     }
     public  Reservation save(Reservation r){
         if(r.getIdReservation()== null){
             return  reservationRepository.save(r);
         }else {
             Optional<Reservation> e = reservationRepository.getReservation(r.getIdReservation());
-            if (e.isEmpty()){
+            if (e.isPresent()){
                 return reservationRepository.save(r);
             }else{
                 return r;

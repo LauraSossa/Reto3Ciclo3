@@ -25,4 +25,35 @@ public class ReservationRepository {
         reservationCrudRepository.delete(r);
     }
 
+
+    /*public  List<CountCar> getTopCars(){
+        List<CountCar>res=new ArrayList<>();
+        List<Object[]>report=reservationCrudRepository.countTotalReservationsByCar();
+        for(int i=0;i<report.size();i++){
+            res.add(new CountCar((Long)report.get(i)[1],(Car) report.get(i)[0]));
+        }
+        return res;
+    }
+
+
+    public  List<CountClient> getTopClients(){
+        List<CountClient>res=new ArrayList<>();
+        List<Object[]>report=reservationCrudRepository.countTotalReservationsByClient();
+        for(int i=0;i<report.size();i++){
+            res.add(new CountClient((Long)report.get(i)[1],(Client) report.get(i)[0]));
+        }
+        return res;
+    }
+
+    public List<Reservation> getReservationPeriod(Date a, Date b){
+        return reservationCrudRepository.findAllByStartDateAfterAndStartDateBefore(a,b);
+    }
+
+    public List<Reservation> getReservationsByStatus(String status){
+        return reservationCrudRepository.findAllByStatus(status);
+    }
+
+     */
+
+
 }

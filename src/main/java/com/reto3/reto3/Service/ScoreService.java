@@ -33,9 +33,12 @@ public class ScoreService {
     public Score update(Score sc){
         if (sc.getIdScore()!=null){
             Optional<Score> q= scoreRepository.getScore(sc.getIdScore());
-            if (q.isPresent()){
-                if (sc.getScore()!=null){
-                    q.get().setScore(sc.getScore());
+            if (!q.isPresent()){
+                if (sc.getMessageText()!=null){
+                    q.get().setMessageText(sc.getMessageText());
+                }
+                if (sc.getStars() != null && sc.getStars() >= 0 && sc.getStars() <= 5) {
+                    q.get().setStars(sc.getStars());
                 }
                 scoreRepository.save(q.get());
                 return q.get();

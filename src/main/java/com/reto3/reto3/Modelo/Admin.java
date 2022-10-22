@@ -1,16 +1,19 @@
 package com.reto3.reto3.Modelo;
 
+
 import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(name="admin")
+@Table(name = "admin")
 public class Admin implements Serializable {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idAdmin;
-    private String nameAdmin;
-
+    private String email;
+    private String password;
+    private String name;
 
 
     public Integer getIdAdmin() {
@@ -21,11 +24,27 @@ public class Admin implements Serializable {
         this.idAdmin = idAdmin;
     }
 
-    public String getNameAdmin() {
-        return nameAdmin;
+    public String getEmail() {
+        return email;
     }
 
-    public void setNameAdmin(String nameAdmin) {
-        this.nameAdmin = nameAdmin;
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

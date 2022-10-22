@@ -40,8 +40,8 @@ public class DoctorService {
                 if (d.getYear()!=null){
                     q.get().setYear(d.getYear());
                 }
-                if (d.getDepartment_id()!=null){
-                    q.get().setDepartment_id(d.getDepartment_id());
+                if (d.getDescription()!=null){
+                    q.get().setDescription(d.getDescription());
                 }
                 if (d.getName()!=null){
                     q.get().setName(d.getName());

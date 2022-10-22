@@ -11,29 +11,30 @@ import java.util.Date;
 public class Reservation implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer IdReservation;
+    private Integer idReservation;
     private Date startDate;
     private Date devolutionDate;
     private String status="created";
     @ManyToOne
     @JoinColumn(name = "doctorId")
-    @JsonIgnoreProperties("reservations")
+    @JsonIgnoreProperties({"doctor","reservations"})
     private Doctor doctor;
 
     @ManyToOne
     @JoinColumn(name = "clientId")
-    @JsonIgnoreProperties({"reservations","messages"})
+    @JsonIgnoreProperties({"reservation","messages"})
     private Client client;
 
-  
-
+    @OneToOne(cascade = {CascadeType.REMOVE},mappedBy="reservation")
+    @JsonIgnoreProperties({"score","reservation"})
+    private Score score;
 
     public Integer getIdReservation() {
-        return IdReservation;
+        return idReservation;
     }
 
     public void setIdReservation(Integer idReservation) {
-        IdReservation = idReservation;
+        this.idReservation = idReservation;
     }
 
     public Date getStartDate() {
@@ -76,5 +77,12 @@ public class Reservation implements Serializable {
         this.client = client;
     }
 
+    public Score getScore() {
+        return score;
+    }
+
+    public void setScore(Score score) {
+        this.score = score;
+    }
 }
 

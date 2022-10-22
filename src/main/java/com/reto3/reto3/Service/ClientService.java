@@ -34,9 +34,6 @@ public class ClientService {
         if (c.getIdClient()!=null){
             Optional<Client> q= clientRepository.getClient(c.getIdClient());
             if (q.isPresent()){
-                if (c.getDepartment()!=null){
-                    q.get().setDepartment(c.getDepartment());
-                }
                 if (c.getEmail()!=null){
                     q.get().setEmail(c.getEmail());
                 }

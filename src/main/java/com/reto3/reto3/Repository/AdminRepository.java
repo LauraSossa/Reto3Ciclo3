@@ -1,4 +1,4 @@
-
+package com.reto3.reto3.Repository;
 
 import com.reto3.reto3.Modelo.Admin;
 import com.reto3.reto3.Repository.crudRepository.AdminCrudRepository;
@@ -15,7 +15,7 @@ public class AdminRepository {
     public List<Admin>getAll(){
         return (List<Admin>) adminCrudRepository.findAll();
     }
-    public Optional<Admin> getClient(int id){
+    public Optional<Admin> getAdmin(int id){
         return adminCrudRepository.findById(id);
     }
     public Admin save(Admin a){
