@@ -17,16 +17,16 @@ public class Reservation implements Serializable {
     private String status="created";
     @ManyToOne
     @JoinColumn(name = "doctorId")
-    @JsonIgnoreProperties({"doctor","reservations"})
+    @JsonIgnoreProperties("reservations")
     private Doctor doctor;
 
     @ManyToOne
     @JoinColumn(name = "clientId")
-    @JsonIgnoreProperties({"reservation","messages"})
+    @JsonIgnoreProperties({"reservations","messages"})
     private Client client;
 
     @OneToOne(cascade = {CascadeType.REMOVE},mappedBy="reservation")
-    @JsonIgnoreProperties({"score","reservation"})
+    @JsonIgnoreProperties("reservation")
     private Score score;
 
     public Integer getIdReservation() {
